@@ -36,6 +36,16 @@ class CalculadoraAppTest {
         assertEquals(2, resultado);
     }
 
+
+    //Teste de Exceção
+    @Test 
+    void testDivideInteirosException() {
+        ArithmeticException exception = assertThrows(ArithmeticException.class, 
+        () -> calc.divideInteiros(10, 0));
+
+        assertEquals("Divisão por zero não permitida", exception.getMessage());
+    }
+
     @Test
     void testMultiplicaInteiros() {
         //Execucação
@@ -44,6 +54,27 @@ class CalculadoraAppTest {
         //Verificação
         assertEquals(12, resultado);
     }
+
+
+    //Testes de Regressão
+    @Test 
+    void testDesconto5() {
+        int desconto = calc.descontoProgressivo(8);
+        assertEquals(5, desconto);
+    }
+
+    @Test 
+    void testDesconto10() {
+        int desconto = calc.descontoProgressivo(18);
+        assertEquals(10, desconto);
+    }
+
+    @Test 
+    void testDesconto15() {
+        int desconto = calc.descontoProgressivo(28);
+        assertEquals(15, desconto);
+    }
+
 
     @ParameterizedTest
     @ValueSource(ints = {2, 4, 6, 10})

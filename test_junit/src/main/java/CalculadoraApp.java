@@ -5,6 +5,10 @@ public class CalculadoraApp {
     }
 
     public int divideInteiros(int a, int b) {
+        if (b == 0) {
+            throw new ArithmeticException("Divisão por zero não permitida");
+        }
+
         return a / b;
     }
 
@@ -18,6 +22,16 @@ public class CalculadoraApp {
             return true;
         } else {
             return false;
+        }
+    }
+
+    public int descontoProgressivo(int qtd) {
+        if (qtd <= 10) {
+            return 5;
+        } else if (qtd < 20) {
+            return 10;
+        } else {
+            return 15;
         }
     }
 
